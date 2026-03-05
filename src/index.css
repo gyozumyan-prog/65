@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Scrollbar ────────────────────────────── */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: #84cc1633; border-radius: 999px; }
+::-webkit-scrollbar-thumb:hover { background: #84cc1666; }
+html { scroll-behavior: smooth; }
+
+/* ── Decorative lines ─────────────────────── */
+.lime-line {
+  width: 48px;
+  height: 2px;
+  background: #84cc16;
+}
+.lime-line-wide {
+  width: 64px;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #84cc16, transparent);
+}
+
+/* ── Image hover zoom ─────────────────────── */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.7s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.08);
+}
+
+/* ── Link underline animation ─────────────── */
+.lime-underline {
+  position: relative;
+}
+.lime-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1.5px;
+  background: #84cc16;
+  transition: width 0.3s ease;
+}
+.lime-underline:hover::after {
+  width: 100%;
+}
+
+/* ── Neon glow pulse ──────────────────────── */
+@keyframes neon-pulse {
+  0%, 100% { box-shadow: 0 0 5px #84cc1640, 0 0 20px #84cc1620; }
+  50% { box-shadow: 0 0 15px #84cc1660, 0 0 40px #84cc1630, 0 0 60px #84cc1610; }
+}
+.neon-glow {
+  animation: neon-pulse 3s ease-in-out infinite;
+}
+
+/* ── Glowing border animation ─────────────── */
+@keyframes border-glow {
+  0%, 100% { border-color: #84cc16; box-shadow: 0 0 10px #84cc1630, inset 0 0 10px #84cc1610; }
+  50% { border-color: #a3e635; box-shadow: 0 0 25px #84cc1650, inset 0 0 15px #84cc1615; }
+}
+.glow-border {
+  animation: border-glow 2.5s ease-in-out infinite;
+}
+
+/* ── Float animation ──────────────────────── */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+.animate-float {
+  animation: float 4s ease-in-out infinite;
+}
+
+/* ── Slide entrances ──────────────────────── */
+@keyframes slide-in-left {
+  from { opacity: 0; transform: translateX(-60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(60px); }
+  to { opacity: 1; transform: translateX(0); }
+}
+@keyframes scale-up {
+  from { opacity: 0; transform: scale(0.85); }
+  to { opacity: 1; transform: scale(1); }
+}
+@keyframes fade-up-slow {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Scroll progress bar ──────────────────── */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  background: linear-gradient(90deg, #84cc16, #a3e635);
+  z-index: 9999;
+  transition: width 0.1s linear;
+  box-shadow: 0 0 8px #84cc1680;
+}
+
+/* ── Card hover lift + glow ───────────────── */
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card-hover:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 10px 40px #84cc1615, 0 0 20px #84cc1610;
+}
+
+/* ── Text shimmer ─────────────────────────── */
+@keyframes text-shimmer {
+  0% { background-position: -200% center; }
+  100% { background-position: 200% center; }
+}
+.text-shimmer {
+  background: linear-gradient(90deg, #84cc16 0%, #a3e635 25%, #ecfccb 50%, #a3e635 75%, #84cc16 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: text-shimmer 4s linear infinite;
+}
+
+/* ── Parallax hero bg ─────────────────────── */
+.parallax-bg {
+  will-change: transform;
+  transition: transform 0.1s linear;
+}
